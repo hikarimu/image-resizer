@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npx eslint --ignore-path .gitignore .",
+    "format:prettier": "npx prettier --ignore-path .gitignore .",
+    "format": "npm run format:prettier -- --write && npm run lint -- --fix",
+    "test": "jest",
+    "prepare": "husky install"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +19,15 @@
     "eslint": "^8.18.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.5.0",
+    "husky": "^8.0.0",
     "jest": "^28.1.1",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   }
 }
