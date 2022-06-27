@@ -4,7 +4,14 @@
     "commonjs": true,
     "es2021": true
   },
-  "extends": ["eslint:recommended", "google", "prettier"],
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "google",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest"
   },
