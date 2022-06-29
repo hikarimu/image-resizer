@@ -13,12 +13,12 @@ class QueueManagerService {
     });
   }
 
-  createJob(imageName: string, imagePath: string) {
+  createJob(imageName: string, sourceImagePath: string) {
     const jobId = uuidv4();
     this.queue.add(
       'resize',
       {
-        imagePath: imagePath,
+        sourceImagePath: sourceImagePath,
       },
       {
         jobId: jobId,
@@ -31,7 +31,6 @@ class QueueManagerService {
   async getJob(jobId: string) {
     const job = await this.queue.getJob(jobId);
     return job;
-    // implement getJob
   }
 }
 

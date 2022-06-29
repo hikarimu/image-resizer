@@ -23,8 +23,18 @@ class QueueManagerController {
   getJob = async (req: Request<{ jobId: string }>, res: Response) => {
     console.log(req.params.jobId);
     const job = await this.queueManagerService.getJob(req.params.jobId);
-    return res.status(200).json(job);
-    // Implement GetJob
+    if (job == null) {
+      return res.status(404).json({
+        message: 'job not found',
+      });
+    }
+    if (job.returnvalue == null) {
+      return res.status(200).json({
+        message: 'job not done',
+      });
+    }
+    // return image for now
+    return res.status(200).sendFile(job.returnvalue.resizedImagePath);
   };
 }
 
