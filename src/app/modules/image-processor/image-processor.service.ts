@@ -1,4 +1,4 @@
-import Bull from 'bull';
+import Bull from '../../wrappers/bull-wrapper';
 import resizeProcessor from './image-processor.processor';
 class ImageProcessorService {
   public queue = new Bull('image-resize');

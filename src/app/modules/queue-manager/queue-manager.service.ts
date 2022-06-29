@@ -1,4 +1,4 @@
-import Bull from './bull-wrapper';
+import Bull from '../../wrappers/bull-wrapper';
 import { v4 as uuidv4 } from 'uuid';
 
 import ImageProcessorService from '../image-processor/image-processor.service';
