@@ -15,5 +15,7 @@
   "parserOptions": {
     "ecmaVersion": "latest"
   },
-  "rules": {}
+  "rules": {
+    "require-jsdoc": 0
+  }
 }
