@@ -1,6 +1,6 @@
 # Image Resizer
 ## Introduction
-A simple project to resize image with long running process architecture.
+A simple project to resize image with long running process architecture by Hikari (hikarimuchtar@gmail.com).
 
 Simplified flow:
 1. User post a job with a file image 
@@ -12,6 +12,15 @@ The implementation is really simple. Queue is implemented using Bull and redis. 
 
 ## Usage
 You can run these commands directly from the root directory (where the package.json is ) for ease of use. 
+
+You can use these commands to run the app directly in your environmment
+1. Install dependencies
+```npm install```
+2. Create an .env file and copy the content of .env.default into it
+3. Start the app using nodemon
+```npm start```
+
+Otherwise you can use docker compose:
 
 ### Spunning up docker compose
 
