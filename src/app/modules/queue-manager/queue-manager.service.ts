@@ -15,7 +15,7 @@ class QueueManagerService {
     });
   }
 
-  createJob(imageName: string, sourceImagePath: string) {
+  createJob(sourceImagePath: string) {
     const jobId = uuidv4();
     this.queue.add(
       'resize',

@@ -12,10 +12,7 @@ class QueueManagerController {
       });
     }
 
-    const job = this.queueManagerService.createJob(
-      req.file.filename,
-      req.file.path
-    );
+    const job = this.queueManagerService.createJob(req.file.path);
 
     return res.status(202).json(job);
   };
