@@ -61,21 +61,30 @@ Every job that has been finished and retrieved using the get request would be cl
 
 ## Used Libraries
 1. Bull
+
 Bull is the underlying queue library used for the job queue. It uses redis to queue. It also allows seperate services to talk to each other.
+
 2. Sharp
+
 A well known library for image manipulation. 
 
 3. Multer 
+
 Middleware used for image upload. A very known solution to handling file upload in express.
 
 ## Missing Features
 1. Validation
+
 Most validation are missing from the project. Image format not been safely validated. The easiest solution would be to limit request to ```/resizeImageJob``` to specific image format supported by the sharp library. The safe solution would be using ```file-type``` library to determine the actual format of the file from the buffer magic number. 
 2. Tests
+
 Various tests inluding unit tests are missing from the project. The only included test is a integration test for creating a job and getting the job.
 
 ## Future Improvement Ideas
 1. Using NFS
+
 Image is currently saved directly in the application volume currently. It would be a great idea to store images to a seperate NFS. This NFS could be a docker volume, a seperate containerized service, or using cloud services like Google Cloud Storage or AWS Buckets. 
+
 2. Seperating image processor to another service (virtually creating microservices)
+
 Currently in this implementation, the image processor is spun to a split thread/process for every job but is still in the same service. By seperating the image processor to a seperate service, we can scale them independently.
