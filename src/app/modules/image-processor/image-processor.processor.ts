@@ -8,7 +8,6 @@ async function processResizeImageJob(job: Job, done: DoneCallback) {
     job.data.sourceImagePath,
     path.resolve(__dirname + '../../../../../resized-images/')
   );
-  console.log('job processed');
   done(null, { resizedImagePath: resizedImage });
 }
 

@@ -19,10 +19,9 @@ app.use('/', new QueueManagerRoute().router);
 // to catch all unexpected error
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   if (err) {
-    res.status(500).json({
+    return res.status(500).json({
       message: 'Something went wrong!',
     });
-    res.end();
   }
 });
 
