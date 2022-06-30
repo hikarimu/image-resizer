@@ -1,5 +1,7 @@
 import Bull from '../../wrappers/bull-wrapper';
+import { Job } from 'bull';
 import { v4 as uuidv4 } from 'uuid';
+import fs from 'fs';
 
 import ImageProcessorService from '../image-processor/image-processor.service';
 
@@ -31,6 +33,12 @@ class QueueManagerService {
   async getJob(jobId: string) {
     const job = await this.queue.getJob(jobId);
     return job;
+  }
+
+  async cleanJob(job: Job) {
+    job.remove();
+    fs.unlinkSync(job.data.sourceImagePath);
+    fs.unlinkSync(job.returnvalue.resizedImagePath);
   }
 }
 

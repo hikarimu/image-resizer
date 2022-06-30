@@ -4,18 +4,12 @@ import path from 'path';
 import { v4 as uuidv4 } from 'uuid';
 
 async function processResizeImageJob(job: Job, done: DoneCallback) {
-  // implement image resizing
-  // simulate delay for now
-  new Promise((resolve, reject) => {
-    setTimeout(() => resolve('done'), 20000);
-  }).then(async () => {
-    const resizedImage = await resizeImage(
-      job.data.sourceImagePath,
-      path.resolve(__dirname + '../../../../../resized-images/')
-    );
-    console.log('job processed');
-    done(null, { resizedImagePath: resizedImage });
-  });
+  const resizedImage = await resizeImage(
+    job.data.sourceImagePath,
+    path.resolve(__dirname + '../../../../../resized-images/')
+  );
+  console.log('job processed');
+  done(null, { resizedImagePath: resizedImage });
 }
 
 async function resizeImage(sourceImagePath: string, targetImageFolder: string) {

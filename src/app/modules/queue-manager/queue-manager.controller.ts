@@ -33,8 +33,10 @@ class QueueManagerController {
         message: 'job not done',
       });
     }
-    // return image for now
-    return res.status(200).sendFile(job.returnvalue.resizedImagePath);
+
+    return res.status(200).sendFile(job.returnvalue.resizedImagePath, () => {
+      this.queueManagerService.cleanJob(job);
+    });
   };
 }
 
