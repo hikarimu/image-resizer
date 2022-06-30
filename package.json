@@ -9,7 +9,8 @@
     "format": "npm run format:prettier -- --write && npm run lint -- --fix",
     "test": "jest",
     "prepare": "husky install",
-    "start": "nodemon ./src/app/app.ts"
+    "start": "nodemon ./src/app/app.ts",
+    "build": "rm -rf ./dist/* && tsc"
   },
   "author": "",
   "license": "ISC",

@@ -1,0 +1,6 @@
+.git/
+.husky/
+node_modules/
+uploads/
+resized-images/
+dist/
