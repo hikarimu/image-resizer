@@ -23,7 +23,7 @@ describe('create and retrieve job', () => {
     const exampleResponse = { jobId: expect.any(String) };
     const request = {
       file: {
-        path: path.resolve(__dirname, './test-image/test.jpg'),
+        path: path.resolve(__dirname, '../../../../pub/test-image/test.jpg'),
       },
     };
     const response: any = {
