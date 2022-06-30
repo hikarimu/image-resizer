@@ -36,7 +36,7 @@ class QueueManagerService {
   }
 
   async cleanJob(job: Job) {
-    job.remove();
+    await job.remove();
     fs.unlinkSync(job.data.sourceImagePath);
     fs.unlinkSync(job.returnvalue.resizedImagePath);
   }
